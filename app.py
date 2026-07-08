@@ -59,11 +59,30 @@ def validar_stock(stock):
 def validar_vendidos(vendidos):
     return vendidos >= 0
 
-def stock_categoría():
-    pass
+def stock_categoria(categoria, productos, inventario):
+    total_stock = 0
 
-def buscar_precio():
-    pass
+    for codigo in productos:
+        datos_producto = productos[codigo]
+        categoria_producto = datos_producto[1]
+
+        if categoria_producto.lower() == categoria.lower():
+            if codigo in inventario:
+                stock = inventario[codigo][0]
+                total_stock = total_stock + stock
+
+    print(f"Stock total: {total_stock}")
+
+def buscar_precio(productos, inventario, precio_min, precio_max):
+    resultados = []
+    for codigo in productos:
+        precio = productos[codigo][2]
+        stock = inventario[codigo][0]
+
+        if precio >= precio_min and precio <= precio_max and stock != 0:
+            if codigo in productos:
+                titulo = productos[codigo][0]
+                resultados.sort(titulo + "--" + codigo)
 
 def buscar_codigo():
     pass
@@ -77,5 +96,5 @@ def agregar_producto():
 def eliminar_producto():
     pass
 
-def mostrar_producto():
+def mostrar_producto(productos, inventario):
     pass

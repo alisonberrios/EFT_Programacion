@@ -269,7 +269,7 @@ def ejecutar_agregar_productos(productos, inventario):
 def ejecutar_eliminar_producto(productos, inventario):
     codigo = input("Ingrese el código a eliminar: ")
 
-    eliminado = eliminar_producto(productos, inventario, codigo)
+    eliminado = eliminar_producto(codigo, productos, inventario)
 
     if eliminado:
         print("Producto eliminado.")

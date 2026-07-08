@@ -38,8 +38,22 @@ def leer_opcion():
             print("Debe ingresar un número de tipo entero.")
 
 def validar_codigo(codigo):
-    return codigo.strip() != " " and codigo.upper() not in productos
+    return codigo.strip() != "" and codigo.upper() not in productos
 
 def validar_nombre(nombre):
     return nombre.strip() != ""
 
+def validar_categoria(categoria):
+    return categoria.strip() != ""
+
+def validar_precio(precio):
+    return precio > 0
+
+def validar_disponible(disponible):
+    return disponible.lower() == "s" or disponible.lower() == "n"
+
+def validar_stock(stock):
+    return stock >= 0
+
+def validar_vendidos(vendidos):
+    return vendidos >= 0

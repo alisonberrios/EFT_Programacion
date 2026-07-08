@@ -275,4 +275,27 @@ def ejecutar_eliminar_producto(productos, inventario):
     else:
         print("El código no existe o ya fue eliminado.")
 
-        
+while True:
+        menu_principal()
+        opcion = leer_opcion()
+
+        if opcion == 1:
+            ejecutar_stock_categoria(productos, inventario)
+
+        elif opcion == 2:
+            ejecutar_busqueda_precio(productos, inventario)
+
+        elif opcion == 3:
+            ejecutar_actualizar_precio(productos, inventario)
+
+        elif opcion == 4:
+            ejecutar_agregar_productos(productos, inventario)
+
+        elif opcion == 5:
+            ejecutar_eliminar_producto(productos, inventario)
+
+        elif opcion == 6:
+            mostrar_producto(productos, inventario)
+        elif opcion == 7:
+            print("Programa Finalizado.")
+

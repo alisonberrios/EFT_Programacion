@@ -36,3 +36,8 @@ def leer_opcion():
                 print("Debe seleccionar una opción válida.")
         except ValueError:
             print("Debe ingresar un número de tipo entero.")
+
+def validar_codigo(codigo):
+    return codigo.strip() != " " and codigo.upper() not in productos
+
+

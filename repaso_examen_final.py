@@ -40,4 +40,6 @@ def leer_opcion():
 def validar_codigo(codigo):
     return codigo.strip() != " " and codigo.upper() not in productos
 
+def validar_nombre(nombre):
+    return nombre.strip() != ""
 

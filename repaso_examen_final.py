@@ -50,10 +50,32 @@ def validar_precio(precio):
     return precio > 0
 
 def validar_disponible(disponible):
-    return disponible.lower() == "s" or disponible.lower() == "n"
+    disponible = disponible.lower()
+    return disponible == "s" or disponible == "n"
 
 def validar_stock(stock):
     return stock >= 0
 
 def validar_vendidos(vendidos):
     return vendidos >= 0
+
+def stock_categoría():
+    pass
+
+def buscar_precio():
+    pass
+
+def buscar_codigo():
+    pass
+
+def actualizar_precio():
+    pass
+
+def agregar_producto():
+    pass
+
+def eliminar_producto():
+    pass
+
+def mostrar_producto():
+    pass

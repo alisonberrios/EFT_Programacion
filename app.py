@@ -120,8 +120,15 @@ def agregar_producto(codigo, nombre, categoria, precio, disponible, stock, vendi
         vendidos
     ]
 
-def eliminar_producto():
-    pass
+def eliminar_producto(codigo, productos, inventario):
+    codigo = codigo.upper()
+
+    if buscar_codigo(productos, inventario, codigo):
+        del productos[codigo]
+        del inventario[codigo]
+        return True
+    
+    return False
 
 def mostrar_producto(productos, inventario):
     pass

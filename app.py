@@ -265,4 +265,14 @@ def ejecutar_agregar_productos(productos, inventario):
     else:
         print("No se pudo agregar el producto.")
 
-    
+def ejecutar_eliminar_producto(productos, inventario):
+    codigo = input("Ingrese el código a eliminar: ")
+
+    eliminado = eliminar_producto(productos, inventario, codigo)
+
+    if eliminado:
+        print("Producto eliminado.")
+    else:
+        print("El código no existe o ya fue eliminado.")
+
+        

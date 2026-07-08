@@ -69,16 +69,11 @@ def buscar_precio(productos, inventario, precio_min, precio_max):
         stock = inventario[codigo][0]
 
         if precio >= precio_min and precio <= precio_max and stock > 0:
-            resultados.append(productos[codigo][0] + "--" + codigo)
+            nombre = productos[codigo][0]
+            resultados.append(nombre + "--" + codigo)
 
     resultados.sort()
-
-    if len(resultados) == 0:
-        print("No hay productos en ese rango.")
-    else:
-        for producto in resultados:
-            print(producto)
-        
+    return resultados
 
 def buscar_codigo(productos, inventario, codigo):
     codigo = codigo.upper()
@@ -317,7 +312,7 @@ def ejecutar_programa():
             ejecutar_busqueda_precio(productos, inventario)
 
         elif opcion == 3:
-            ejecutar_actualizar_precio(productos)
+            ejecutar_actualizar_precio(productos, inventario)
 
         elif opcion == 4:
             ejecutar_agregar_productos(productos, inventario)

@@ -84,8 +84,13 @@ def buscar_precio(productos, inventario, precio_min, precio_max):
                 titulo = productos[codigo][0]
                 resultados.sort(titulo + "--" + codigo)
 
-def buscar_codigo():
-    pass
+def buscar_codigo(productos, inventario, codigo):
+    codigo = codigo.upper()
+
+    if codigo in productos and codigo in inventario:
+        return True
+    
+    return False
 
 def actualizar_precio():
     pass

@@ -158,3 +158,24 @@ def ejecutar_busqueda_precio(productos, inventario):
     if precio_min > precio_max:
         print("El precio mínimo no puede ser mayor que el precio máximo.")
         return
+    
+def ejecutar_actualizar_precio(productos, inventario):
+    codigo = input("Ingresar el código del producto:: ")
+
+    while True:
+        nuevo_precio = int(input("Ingrese nuevo precio del producto: "))
+
+        if validar_precio(nuevo_precio):
+            break
+        else:
+            print("El precio debe ser mayor que 0.")
+    
+    actualizado = actualizar_precio(productos, inventario, codigo, nuevo_precio)
+
+    if actualizado:
+        print("Precio actualizado.")
+    else:
+        print("El código no existe.")
+
+
+

@@ -131,5 +131,7 @@ def eliminar_producto(codigo, productos, inventario):
     return False
 
 def mostrar_producto(productos, inventario):
-    pass
+    print("==== PRODUCTOS =====")
+    print(productos)
+    print(inventario)
 

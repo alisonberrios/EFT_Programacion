@@ -63,14 +63,22 @@ def stock_categoria(categoria, productos, inventario):
 
 def buscar_precio(productos, inventario, precio_min, precio_max):
     resultados = []
+
     for codigo in productos:
         precio = productos[codigo][2]
         stock = inventario[codigo][0]
 
-        if precio >= precio_min and precio <= precio_max and stock != 0:
-            if codigo in productos:
-                titulo = productos[codigo][0]
-                resultados.sort(titulo + "--" + codigo)
+        if precio >= precio_min and precio <= precio_max and stock > 0:
+            resultados.append(productos[codigo][0] + "--" + codigo)
+
+    resultados.sort()
+
+    if len(resultados) == 0:
+        print("No hay productos en ese rango.")
+    else:
+        for producto in resultados:
+            print(producto)
+        
 
 def buscar_codigo(productos, inventario, codigo):
     codigo = codigo.upper()
@@ -107,7 +115,7 @@ def agregar_producto(codigo, nombre, categoria, precio, disponible, stock, vendi
         stock,
         vendidos
     ]
-    
+
 def eliminar_producto(codigo, productos, inventario):
     codigo = codigo.upper()
 
@@ -119,9 +127,8 @@ def eliminar_producto(codigo, productos, inventario):
     return False
 
 def mostrar_producto(productos, inventario):
-    print("==== PRODUCTOS =====")
-    print(productos)
-    print(inventario)
+    for codigo in productos:
+        print(codigo, productos[codigo], inventario[codigo])
 
 def ejecutar_stock_categoria(productos, inventario):
     categoria = input("Ingrese categoría de producto: ")
@@ -145,6 +152,7 @@ def ejecutar_busqueda_precio(productos, inventario):
     if precio_min > precio_max:
         print("El precio mínimo no puede ser mayor que el precio máximo.")
         return
+        
     
 def ejecutar_actualizar_precio(productos, inventario):
     codigo = input("Ingresar el código del producto:: ")

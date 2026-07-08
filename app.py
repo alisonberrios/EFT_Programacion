@@ -26,7 +26,7 @@ def leer_opcion():
             print("Debe ingresar un número de tipo entero.")
 
 def validar_codigo(codigo):
-    return codigo.strip() != "" and codigo.upper() not in productos
+    return codigo.strip() != ""
 
 def validar_nombre(nombre):
     return nombre.strip() != ""
@@ -115,7 +115,7 @@ def agregar_producto(codigo, nombre, categoria, precio, disponible, stock, vendi
         stock,
         vendidos
     ]
-
+    return True
 def eliminar_producto(codigo, productos, inventario):
     codigo = codigo.upper()
 
@@ -179,7 +179,7 @@ def ejecutar_agregar_productos(productos, inventario):
         print("El código no puede estar vacío.")
         return
 
-    if buscar_codigo(codigo, productos):
+    if buscar_codigo(productos, inventario, codigo):
         print("El código ya existe.")
         return
     

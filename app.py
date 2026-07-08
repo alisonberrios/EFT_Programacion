@@ -135,3 +135,7 @@ def mostrar_producto(productos, inventario):
     print(productos)
     print(inventario)
 
+def ejecutar_stock_categoria(productos, inventario):
+    categoria = input("Ingrese categoría de producto: ")
+    total = stock_categoria(categoria, productos, inventario)
+    print(f"El total de stock es: {total}")

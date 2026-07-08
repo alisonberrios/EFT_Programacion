@@ -177,5 +177,92 @@ def ejecutar_actualizar_precio(productos, inventario):
     else:
         print("El código no existe.")
 
+def ejecutar_agregar_productos(productos, inventario):
+    codigo = input("Ingrese código del producto: ").upper()
 
+    if not validar_codigo(codigo):
+        print("El código no puede estar vacío.")
+        return
 
+    if buscar_codigo(codigo, productos):
+        print("El código ya existe.")
+        return
+    
+    while True:
+        nombre = input("Ingrese nombre: ")
+
+        if validar_nombre(nombre):
+            break
+        else:
+            print("El nombre no puede estar vacío.")
+
+    while True:
+        categoria = input("Ingrese categoría: ")
+
+        if validar_categoria(categoria):
+            break
+        else:
+            print("La categoría no puede estar vacía.")
+    
+    while True:
+        try:
+            precio = int(input("Ingrese precio: "))
+
+            if validar_precio(precio):
+                break
+            else:
+                print("El precio debe ser mayor que 0.")
+
+        except:
+            print("Debe ingresar un número entero.")
+
+    while True:
+        disponible = input("¿Está disponible? (s/n): ")
+
+        if validar_disponible(disponible):
+            break
+        else:
+            print("Debe ingresar s o n.")
+
+    while True:
+        try:
+            stock = int(input("Ingrese stock: "))
+
+            if validar_stock(stock):
+                break
+            else:
+                print("El stock debe ser mayor o igual a 0.")
+
+        except:
+            print("Debe ingresar un número entero.")
+
+    while True:
+        try:
+            vendidos = int(input("Ingrese vendidos: "))
+
+            if validar_vendidos(vendidos):
+                break
+            else:
+                print("Los vendidos deben ser mayor o igual a 0.")
+
+        except ValueError:
+            print("Debe ingresar un número entero.")
+
+    agregado = agregar_producto(
+        codigo,
+        nombre,
+        categoria,
+        precio,
+        disponible,
+        stock,
+        vendidos,
+        productos,
+        inventario
+    )
+    
+    if agregado:
+        print("Producto agregado correctamente.")
+    else:
+        print("No se pudo agregar el producto.")
+
+    

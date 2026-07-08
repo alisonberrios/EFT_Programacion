@@ -141,7 +141,8 @@ def ejecutar_busqueda_precio(productos, inventario):
         if precio_min >= 0:
             break
         else:
-            print("El precio mínimo debe ser mayor a igual a 0.")
+            print("El precio mínimo debe ser mayor o igual a 0.")
+
     while True:
         precio_max = int(input("Ingrese el precio máximo: "))
 
@@ -149,9 +150,19 @@ def ejecutar_busqueda_precio(productos, inventario):
             break
         else:
             print("El precio máximo debe ser mayor o igual a 0.")
+
     if precio_min > precio_max:
         print("El precio mínimo no puede ser mayor que el precio máximo.")
         return
+
+    resultados = buscar_precio(productos, inventario, precio_min, precio_max)
+
+    if len(resultados) > 0:
+        print("Productos encontrados:")
+        for producto in resultados:
+            print(producto)
+    else:
+        print("No hay productos en ese rango de precios.")
         
     
 def ejecutar_actualizar_precio(productos, inventario):

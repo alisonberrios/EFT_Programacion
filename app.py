@@ -18,7 +18,7 @@ def leer_opcion():
     while True:
         try:
             opcion = int(input("Ingrese una opción del menú: "))
-            if opcion not in [1,2,3,4,5,6,7]:
+            if opcion >= 1 and opcion <= 7:
                 return opcion
             else:
                 print("Debe seleccionar una opción válida.")
@@ -107,7 +107,7 @@ def agregar_producto(codigo, nombre, categoria, precio, disponible, stock, vendi
         stock,
         vendidos
     ]
-
+    
 def eliminar_producto(codigo, productos, inventario):
     codigo = codigo.upper()
 
@@ -125,8 +125,7 @@ def mostrar_producto(productos, inventario):
 
 def ejecutar_stock_categoria(productos, inventario):
     categoria = input("Ingrese categoría de producto: ")
-    total = stock_categoria(categoria, productos, inventario)
-    print(f"El total de stock es: {total}")
+    stock_categoria(categoria, productos, inventario)
 
 def ejecutar_busqueda_precio(productos, inventario):
     while True:

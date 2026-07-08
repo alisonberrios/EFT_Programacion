@@ -100,11 +100,29 @@ def actualizar_precio(productos, inventario, codigo, nuevo_precio):
     return False
     
 
-def agregar_producto(productos, inventario, codigo, nombre, categoria, precio, disponibilidad):
-    pass
+def agregar_producto(codigo, nombre, categoria, precio, disponible, stock, vendidos, productos, inventario):
+    codigo = codigo.upper()
+
+    if disponible.lower() == "s":
+        disponible = True
+    else:
+        disponible = False
+
+    productos[codigo] = [
+        nombre,
+        categoria,
+        precio,
+        disponible
+    ]
+
+    inventario[codigo] = [
+        stock,
+        vendidos
+    ]
 
 def eliminar_producto():
     pass
 
 def mostrar_producto(productos, inventario):
     pass
+

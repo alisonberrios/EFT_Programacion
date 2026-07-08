@@ -1,18 +1,6 @@
 import os
 os.system("cls")
 
-productos = {
-"P101":["Cuaderno","Papelería",2490,True],
-"P102":["Lápiz","Papelería",590,True],
-"P103":["Botella","Accesorios",6990,False],
-"P104":["Mochila","Accesorios",24990,True] 
-}
-
-inventario = { "P101":[30,15],
-"P102":[120,50],
-"P103":[0,10],
-"P104":[8,25]
-}
 
 def menu_principal():
     print("""===== MENÚ PRINCIPAL =====
@@ -275,8 +263,33 @@ def ejecutar_eliminar_producto(productos, inventario):
     else:
         print("El código no existe o ya fue eliminado.")
 
-while True:
-        menu_principal()
+def ejecutar_programa():
+
+    productos = {
+        "P101": ["Cuaderno", "Papelería", 2490, True],
+        "P102": ["Lápiz", "Papelería", 590, True],
+        "P103": ["Botella", "Accesorios", 6990, False],
+        "P104": ["Mochila", "Accesorios", 24990, True]
+    }
+
+    inventario = {
+        "P101": [30, 15],
+        "P102": [120, 50],
+        "P103": [0, 10],
+        "P104": [8, 25]
+    }
+
+    while True:
+        print("\n========== MENÚ PRINCIPAL ==========")
+        print("1. Stock por categoría")
+        print("2. Buscar productos por rango de precio")
+        print("3. Actualizar precio")
+        print("4. Agregar producto")
+        print("5. Eliminar producto")
+        print("6. Mostrar productos")
+        print("7. Salir")
+        print("===================================")
+
         opcion = leer_opcion()
 
         if opcion == 1:
@@ -286,7 +299,7 @@ while True:
             ejecutar_busqueda_precio(productos, inventario)
 
         elif opcion == 3:
-            ejecutar_actualizar_precio(productos, inventario)
+            ejecutar_actualizar_precio(productos)
 
         elif opcion == 4:
             ejecutar_agregar_productos(productos, inventario)
@@ -296,6 +309,9 @@ while True:
 
         elif opcion == 6:
             mostrar_producto(productos, inventario)
-        elif opcion == 7:
-            print("Programa Finalizado.")
 
+        elif opcion == 7:
+            print("Programa finalizado.")
+            break
+
+ejecutar_programa()

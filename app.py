@@ -139,3 +139,22 @@ def ejecutar_stock_categoria(productos, inventario):
     categoria = input("Ingrese categoría de producto: ")
     total = stock_categoria(categoria, productos, inventario)
     print(f"El total de stock es: {total}")
+
+def ejecutar_busqueda_precio(productos, inventario):
+    while True:
+        precio_min = int(input("Ingrese el precio mínimo: "))
+
+        if precio_min >= 0:
+            break
+        else:
+            print("El precio mínimo debe ser mayor a igual a 0.")
+    while True:
+        precio_max = int(input("Ingrese el precio máximo: "))
+
+        if precio_max >= 0:
+            break
+        else:
+            print("El precio máximo debe ser mayor o igual a 0.")
+    if precio_min > precio_max:
+        print("El precio mínimo no puede ser mayor que el precio máximo.")
+        return

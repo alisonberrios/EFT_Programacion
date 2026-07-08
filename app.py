@@ -92,10 +92,15 @@ def buscar_codigo(productos, inventario, codigo):
     
     return False
 
-def actualizar_precio():
-    pass
+def actualizar_precio(productos, inventario, codigo, nuevo_precio):
+    codigo = codigo.upper()
+    if buscar_codigo(productos, inventario, codigo):
+        productos[codigo][2] = nuevo_precio
+        return True
+    return False
+    
 
-def agregar_producto():
+def agregar_producto(productos, inventario, codigo, nombre, categoria, precio, disponibilidad):
     pass
 
 def eliminar_producto():
